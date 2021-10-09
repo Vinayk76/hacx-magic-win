@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Create Schema
-const ProfileSchema = new Schema({
+//Profile Schema
+const UserProfileSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'users'
@@ -37,16 +37,16 @@ const ProfileSchema = new Schema({
   },
   sportsInfo: [
     {
-      title: {
+      sportsName: {
         type: String,
         required: true
       },
-      company: {
+      typeOfSport: {
         type: String,
         required: true
       },
-      location: {
-        type: String
+      pastPerformance: {
+        type: []
       },
       from: {
         type: Date,
@@ -59,7 +59,7 @@ const ProfileSchema = new Schema({
         type: Boolean,
         default: false
       },
-      description: {
+      additionalDetails: {
         type: String
       }
     }
@@ -70,25 +70,17 @@ const ProfileSchema = new Schema({
         type: String,
         required: true
       },
-      company: {
+      bloodGroup: {
         type: String,
         required: true
       },
-      location: {
-        type: String
+      disease: {
+        type: []
       },
-      from: {
-        type: Date,
-        required: true
+      pastHistory: {
+        type: []
       },
-      to: {
-        type: Date
-      },
-      current: {
-        type: Boolean,
-        default: false
-      },
-      description: {
+      additionalDetails: {
         type: String
       }
     }
@@ -124,61 +116,41 @@ const ProfileSchema = new Schema({
   ],
   partyOrClubInfo: [
     {
-      school: {
+      partyClubName: {
         type: String,
         required: true
       },
-      degree: {
+      typeOfEntertainment: {
         type: String,
         required: true
       },
-      fieldofstudy: {
-        type: String,
-        required: true
+      feedback: {
+        type: []
       },
-      from: {
-        type: Date,
-        required: true
-      },
-      to: {
-        type: Date
-      },
-      current: {
-        type: Boolean,
-        default: false
-      },
-      description: {
+      additionalDetails: {
         type: String
       }
     }
   ],
   reviewRatings: [
     {
-      school: {
+      gotWineFrom: {
         type: String,
         required: true
       },
-      degree: {
+      rating: {
         type: String,
         required: true
       },
-      fieldofstudy: {
+      wineFromDomain: {
         type: String,
         required: true
       },
-      from: {
-        type: Date,
-        required: true
-      },
-      to: {
-        type: Date
-      },
-      current: {
-        type: Boolean,
-        default: false
-      },
-      description: {
+      review: {
         type: String
+      },
+      additionalDetails:{
+        type: []
       }
     }
   ],
@@ -206,4 +178,4 @@ const ProfileSchema = new Schema({
   }
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+module.exports = UserProfile = mongoose.model('profile', UserProfileSchema);

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require('./routes/users');
-const profile = require('./routes/profile');
+const profile = require('./routes/wineView');
 const wine = require('./routes/wine');
 
 const app = express();
